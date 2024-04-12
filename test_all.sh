@@ -16,9 +16,17 @@ time {
 }
 
 # testing java 17
-printf "\n\nTesting Java 17\n"
+printf "\n\nTesting Java 17 with JVM optimizations\n"
 rm *.class
 time {
 	javac Benchmark.java
 	java Benchmark
+}
+
+# testing java 17 without optimizations
+printf "\n\nTesting Java 17 without JVM optimiazations\n"
+rm *.class
+time {
+	javac Benchmark.java
+	java Benchmark -Djava.compiler=NONE
 }
